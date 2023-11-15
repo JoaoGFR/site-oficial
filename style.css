@@ -1,10 +1,16 @@
 /* Estilos para deixar a página mais agradável */
 body {
-        background-image: linear-gradient(to right, #ebd7c3, #e7a670, #afd1ec);
+        background: url();
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
 
+}
+
+@media screen and (max-widht: 760px){
+    section, aside{
+        width: 100%;
+    }
 }
 
 .container {
