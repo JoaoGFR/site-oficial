@@ -1,13 +1,43 @@
 /* Estilos para deixar a página mais agradável */
 body {
-        background: url();
+        background: url(https://img.freepik.com/vetores-gratis/abstrato-geometrico-verde_23-2148374529.jpg?w=1380&t=st=1700075073~exp=1700075673~hmac=c8637d8802bd9b303a3bec578a11f91529ddb161984fb8ca559a13df556256a1);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
 
 }
 
-@media screen and (max-widht: 760px){
+@media (max-width: 600px) {
+    /* Estilos para telas de celulares */
+  }
+  
+  @media (max-width: 600px) {
+    body {
+      margin: 0 auto;
+    }
+  }
+
+  @media (max-width: 600px) {
+    body {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    img {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .elemento-desnecessario {
+      display: none;
+    }
+  }
+  
+
+@media screen and (max-widht: 600px){
     section, aside{
         width: 100%;
     }
@@ -118,7 +148,7 @@ th:nth-child(4), td:nth-child(4) {
     width: 300px;
     position: fixed;
     top: 20px; /* Ajuste a posição superior conforme necessário */
-    right: 20px; /* Ajuste a posição direita conforme necessário */
+    right: 105px; /* Ajuste a posição direita conforme necessário */
     z-index: 999; /* Garante que o elemento fique sobreposto a outros elementos */
 }
 
