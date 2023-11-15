@@ -14,6 +14,8 @@ saudeTotal = 0;
 outrosTotal = 0;
 despesasTotal = 0;
 cartaoTotal = 0;
+dependenteTotal = 0;
+
 
 
 
@@ -45,6 +47,7 @@ window.addEventListener("load", function (event) {
         cartaoTotal,
         despesasTotal,
         outrosTotal,
+        dependenteTotal,
         balance
     };
 
@@ -70,7 +73,8 @@ function loadSavedData() {
         outrosTotal = savedData.outrosTotal || 0;
         saudeTotal = savedData.saudeTotal || 0;
         cartaoTotal = savedData.cartaoTotal || 0;
-        despesasTotal = savedData.desepesaTotal || 0;
+        despesasTotal = savedData.despesasTotal || 0;
+        dependenteTotal = savedData.dependenteTotal || 0;
         salary = savedData.salary || 0;
         balance = savedData.balance || 0;
 
@@ -91,13 +95,14 @@ function addSalary() {
     calculateBalance();
     saveData();
 }
+
+
 function calculateBalance() {
     salary = parseFloat(document.getElementById("salary").value) || 0;
     const balance = salary - totalExpenses;
     document.getElementById("total-expenses").textContent = totalExpenses;
     document.getElementById("balance").textContent = balance;
 }
-
 function atualizarGrafico() {
    
         
@@ -110,6 +115,7 @@ function atualizarGrafico() {
       { value: saudeTotal, category: "Saúde" },
       { value: despesasTotal, category: "Despesas pessoais" },
       { value: outrosTotal, category: "Outros" },
+      { value: dependenteTotal, category: "Dependente" },
       
     ]);
         
@@ -124,6 +130,11 @@ function addExpense() {
     const description = document.getElementById("expense-description").value;
     const amount = parseFloat(document.getElementById("expense-amount").value);
     const category = document.getElementById("expense-category").value;
+    
+    if (!description || isNaN(amount) || amount <= 0) {
+        alert("Por favor, insira uma descrição e um valor de despesa válido.");
+        return;
+    }
    
     switch (category) {
         case "Alimentação":
@@ -140,7 +151,8 @@ function addExpense() {
             break;
         case "Outros":
             outrosTotal += amount;
-        case "Cartao de Crédito":
+            break;
+        case "Cartão de Crédito":
             cartaoTotal += amount;
             break;
         case "Saúde":
@@ -149,7 +161,9 @@ function addExpense() {
          case "Despesas pessoais":
             despesasTotal += amount;
             break;
-        
+        case "Dependente":
+            dependenteTotal += amount;
+            break;
  }
 
 
@@ -176,13 +190,15 @@ function addExpense() {
     console.log("Total de Saúde: " + saudeTotal);
     console.log("Total de Despesas: " + despesasTotal);
     console.log("Total de Outros: " + outrosTotal);
-    console.log("Total de Cartao: " + cartaoTotal);
+    console.log("Total de Cartão: " + cartaoTotal);
+    console.log("Total de Dependente: " + dependenteTotal);
+
 
 atualizarGrafico();
 
 saveData();
+ }
 
-}
 
 function removeExpense(index) {
    
@@ -209,15 +225,19 @@ function removeExpense(index) {
             case "Outros":
                 outrosTotal -= removedExpense.amount;
                 break;
-            case "Cartao de Crédito":
+            case "Cartão de Crédito":
                 cartaoTotal -= removedExpense.amount;
                 break;
             case "Saúde":
-                    saudeTotal -= removedExpense.amount;
-                    break;
+                saudeTotal -= removedExpense.amount;
+                break;
             case "Despesas pessoais":
                 despesasTotal -= removedExpense.amount;
                 break;
+            case "Dependente":
+                dependenteTotal -= removedExpense.amount;
+                break;
+                
             // Adicione mais casos conforme necessário para outras categorias
         }
     updateExpenseTable();
@@ -296,4 +316,3 @@ function formatCurrency(value)
 
     return USDollar.format(value)
 }
-    

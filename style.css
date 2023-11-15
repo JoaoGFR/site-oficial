@@ -1,9 +1,10 @@
 /* Estilos para deixar a página mais agradável */
 body {
-        background: url(https://img.freepik.com/vetores-gratis/abstrato-geometrico-verde_23-2148374529.jpg?w=1380&t=st=1700075073~exp=1700075673~hmac=c8637d8802bd9b303a3bec578a11f91529ddb161984fb8ca559a13df556256a1);
+        background: url(https://www.pixground.com/wp-content/uploads/2023/09/Abstract-Green-Gradient-Layers-AI-Generated-4K-Wallpaper.jpg);
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-size: cover;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
 
@@ -48,7 +49,7 @@ body {
     height: 90%;
     min-width: 500px;
     min-height: 500px;
-    background: linear-gradient(30deg, #eee2d5 50%, #c1dbf0 50%);
+    background: linear-gradient(30deg, #aaf2ff, #adffa5);
     margin: auto;
     word-wrap: break-word;
     top: 0;
@@ -90,22 +91,22 @@ button:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 10px solid #f80e0e;
     border-radius: 10px;
     border-collapse: collapse;
-    overflow: hidden;
-    box-shadow: 0 0 20px #c4a90f69;
 }
 
-th, td {
+#expense-list th, #expense-list td {
     padding: 15px;
     text-align: left;
     color: rgb(0, 0, 0);
+    border: 1px solid #00000031; /* Adiciona uma borda de 1 pixel sólido com a cor #ddd */
+    height: 10px;
 }
 
 
+
 thead th{
-    background-color: #55608f;
+    background-color: rgb(120, 160, 122);
 }
 /* Cores de saldo condicionais */
 #balance {
@@ -148,7 +149,7 @@ th:nth-child(4), td:nth-child(4) {
     width: 300px;
     position: fixed;
     top: 20px; /* Ajuste a posição superior conforme necessário */
-    right: 105px; /* Ajuste a posição direita conforme necessário */
+    right: 135px; /* Ajuste a posição direita conforme necessário */
     z-index: 999; /* Garante que o elemento fique sobreposto a outros elementos */
 }
 
@@ -164,3 +165,57 @@ th:nth-child(4), td:nth-child(4) {
     box-shadow: 0 0 20px #0000001a;
 }
 
+
+#expense-form {
+    max-width: 400px; /* Ajusta a largura máxima do formulário */
+    margin: 0 auto; /* Centraliza o formulário na página */
+  }
+  
+  #expense-form h2 {
+    color: #333; /* Define a cor do título */
+  }
+  
+  #expense-form input,
+  #expense-form select {
+    width: 100%; /* Faz com que os inputs e o select ocupem 100% da largura do container pai */
+    margin-bottom: 10px; /* Adiciona espaço entre os inputs e o select */
+    padding: 8px; /* Adiciona um espaçamento interno para melhorar a aparência */
+    box-sizing: border-box; /* Garante que a largura e a altura incluam a borda e o preenchimento */
+    border: 1px solid #ddd; /* Adiciona uma borda de 1 pixel sólido com a cor #ddd */
+    border-radius: 4px; /* Adiciona bordas arredondadas */
+  }
+  
+  
+  #expense-form select:focus,
+  #expense-form input:focus {
+    /* Adiciona um estilo quando um input ou select está em foco */
+    outline: none;
+    border-color: #3498db; /* Muda a cor da borda quando o elemento está em foco */
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Adiciona uma sombra sutil */
+  }
+#total-expenses{
+    color: orange;
+    font-weight: bolder;
+  }
+
+#summary{
+    font-weight: bolder;
+}
+
+#salary{
+    width: 250px; /* Faz com que os inputs e o select ocupem 100% da largura do container pai */
+    margin-bottom: 10px; /* Adiciona espaço entre os inputs e o select */
+    padding: 8px; /* Adiciona um espaçamento interno para melhorar a aparência */
+    box-sizing: border-box; /* Garante que a largura e a altura incluam a borda e o preenchimento */
+    border: 1px solid #ddd; /* Adiciona uma borda de 1 pixel sólido com a cor #ddd */
+    border-radius: 4px; /* Adiciona bordas arredondadas */
+
+}
+
+#salary select:focus,
+#salary input:focus {
+  /* Adiciona um estilo quando um input ou select está em foco */
+  outline: none;
+  border-color: #3498db; /* Muda a cor da borda quando o elemento está em foco */
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.5); /* Adiciona uma sombra sutil */
+}
