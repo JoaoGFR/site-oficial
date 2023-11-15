@@ -1,18 +1,33 @@
 /* Estilos para deixar a página mais agradável */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom, #4e90d6, #b4bfcc)
-   
+        background-image: linear-gradient(to right, #ebd7c3, #e7a670, #afd1ec);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+
 }
 
 .container {
     width: 80%;
-    margin: 0 auto;
-    background-color: #fff; /* Fundo branco */
-    padding: 20px; /* Espaçamento interno */
-    border-radius: 10px; /* Cantos arredondados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+    height: 90%;
+    min-width: 500px;
+    min-height: 500px;
+    background: linear-gradient(30deg, #eee2d5 50%, #c1dbf0 50%);
+    margin: auto;
+    word-wrap: break-word;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 15px;
+    border: 1px solid rgb(146, 145, 145); 
+    border-radius: 15px; /* Define a curvatura dos cantos */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
+
+
+/* WANDERLEY VIADO */
+
 
 h1 {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -39,11 +54,11 @@ button:hover {
 table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #ccc;
+    border: 10px solid #f80e0e;
     border-radius: 10px;
     border-collapse: collapse;
     overflow: hidden;
-    box-shadow: 0 0 20px #0000001a;
+    box-shadow: 0 0 20px #c4a90f69;
 }
 
 th, td {
@@ -86,11 +101,19 @@ th:nth-child(4), td:nth-child(4) {
         border-radius: 3px;
     }
 
-.testeporra{
+/*.testeporra{
     width: 300px;
     position: fixed;
     left: 1100px;
     margin-top: 20px;
+}
+*/
+.testeporra {
+    width: 300px;
+    position: fixed;
+    top: 20px; /* Ajuste a posição superior conforme necessário */
+    right: 20px; /* Ajuste a posição direita conforme necessário */
+    z-index: 999; /* Garante que o elemento fique sobreposto a outros elementos */
 }
 
 .table{
