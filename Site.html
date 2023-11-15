@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Orçamento Doméstico</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/index.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
+    <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
+    <script src="grafico.js"></script>
+</head>
+
+<body>
+    <style>
+        #chartdiv {
+          width: 100%;
+          height: 500px;
+        }
+        </style>
+
+</style>
+<script>
+    am5.ready(function() {
+    
+    var root = am5.Root.new("chartdiv");
+    
+    root.setThemes([
+      am5themes_Animated.new(root)
+    ]);
+    
+    chart = root.container.children.push(am5percent.PieChart.new(root, {
+      layout: root.verticalLayout
+    }));
+    
+    series = chart.series.push(am5percent.PieSeries.new(root, {
+      valueField: "value",
+      categoryField: "category"
+    }));
+    
+    series.data.setAll([
+      { value: alimentacaoTotal, category: "Alimentação" },
+      { value: moradiaTotal, category: "Moradia" },
+      { value: transporteTotal, category: "Transporte" },
+      { value: lazerTotal, category: "Lazer" },
+      { value: cartaoTotal, category: "Cartão de Crédito" },
+      { value: saudeTotal, category: "Saúde" },
+      { value: despesasTotal, category: "Despesas pessoais" },
+      { value: outrosTotal, category: "Outros" },
+      
+    ]);
+    
+    
+    legend.data.setAll(series.dataItems);
+    
+    series.appear(1000, 100);
+    
+    }); // end am5.ready()
+    </script>
+
+
+    <img src="Sao_Lucas_JI_PARANA_Principal.png" alt="" class="testeporra">
+
+
+    
+    <div class="container">
+        <h1>Calculadora de Orçamento Doméstico</h1>
+
+       
+
+        <div id="expense-form">
+            <h2>Registrar Despesas</h2>
+            <input type="text" id="expense-description" placeholder="Descrição">
+            <input type="number" id="expense-amount" placeholder="Valor">
+            <select id="expense-category">
+                <option value="Alimentação" id="ali_id">Alimentação</option>
+                <option value="Moradia">Moradia</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Lazer">Lazer</option>
+                <option value="Cartao de Crédito">Cartao de crédito</option>
+                <option value="Saúde">Saúde</option>
+                <option value="Despesas pessoais">Despesas pessoais</option>  
+                <option value="Outros">Outros</option>
+                <!-- Adicione mais categorias conforme necessário -->
+            </select>
+            <button onclick="addExpense()">Adicionar Despesa</button>
+        </div>
+
+        <div id="expense-list">
+            <h2>Lista de Despesas</h2>
+            <table >
+                <thead >
+                    <tr >
+                        <th>Descrição</th>
+                        <th>Valor</th>
+                        <th>Categoria</th>
+                        <th>Ação</th>
+                        <th>Data</th>
+                    </tr>
+                </thead>
+                <tbody id="expense-table">
+                    <!-- As despesas serão exibidas aqui -->
+                </tbody>
+            </table>
+        </div>
+
+     
+        <div id="summary">
+    
+            <h2>Resumo Financeiro</h2>
+            <label for="salary">Salário Mensal: </label>
+            <input type="number" id="salary" placeholder="Informe seu salário" oninput="calculateBalance()">
+
+            <p>Total de Despesas:R$ <span id="total-expenses">0</span></p>
+            <p>Restante:R$ <span id="balance">0</span></p>
+
+            <canvas id="expense-chart" width="50" height="50"></canvas>
+
+            
+    <div id="chartdiv"></div>
+
+        </div>
+    </div>
+
+
+
+   
+</body>
+</html>

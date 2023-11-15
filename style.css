@@ -1,0 +1,107 @@
+/* Estilos para deixar a página mais agradável */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom, #4e90d6, #b4bfcc)
+   
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff; /* Fundo branco */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Cantos arredondados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra suave */
+}
+
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: #333; /* Cor do texto mais escura */
+}
+
+/* Botão "Adicionar Despesa" */
+button {
+    background-color: #007bff; /* Cor de fundo azul */
+    color: #fff; /* Cor do texto branco */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Cor de fundo azul mais escura ao passar o mouse */
+}
+
+/* Tabela de Despesas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px #0000001a;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    color: rgb(0, 0, 0);
+}
+
+
+thead th{
+    background-color: #55608f;
+}
+/* Cores de saldo condicionais */
+#balance {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+#balance.green {
+    color: green;
+}
+
+#balance.red {
+    color: red;
+}
+
+th:nth-child(4), td:nth-child(4) {
+    text-align: center;
+    border-radius: 3px;
+     }
+
+     #expense-list table {
+        width: 100%;
+        border-radius: 3px;
+    }
+    
+    #expense-list table th:nth-child(1),
+    #expense-list table td:nth-child(1) {
+        width: 40%; /* Defina a largura desejada */
+        border-radius: 3px;
+    }
+
+.testeporra{
+    width: 300px;
+    position: fixed;
+    left: 1100px;
+    margin-top: 20px;
+}
+
+.table{
+    
+     /* Une as bordas das células da tabela */
+    width: 100%; /* Defina a largura da tabela, se necessário */
+    /* Personalize a aparência das bordas */
+    border: 1px solid #ccc; /* Define a cor e espessura das bordas da tabela */
+    border-radius: 10px; /* Torna a tabela arredondada */
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px #0000001a;
+}
+
