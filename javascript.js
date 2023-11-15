@@ -4,6 +4,7 @@ let series;
 let expenses = [];
 let totalExpenses = 0;
 let salary = 0;
+let balance = 0;
 
 alimentacaoTotal = 0;
 moradiaTotal = 0; 
@@ -43,23 +44,24 @@ window.addEventListener("load", function (event) {
         saudeTotal,
         cartaoTotal,
         despesasTotal,
-        outrosTotal
-        
+        outrosTotal,
+        balance
     };
 
     // Salva os dados no localStorage
     localStorage.setItem('expensesData', JSON.stringify(dataToSave));
+    
 }
 
 function loadSavedData() {
     // Tenta obter os dados do localStorage
     const savedData = JSON.parse(localStorage.getItem('expensesData'));
+    console.log(localStorage.getItem('expensesData'))
 
     if (savedData) {
         expenses = savedData.expenses || [];
         totalExpenses = savedData.totalExpenses || 0;
-        salary = savedData.salary || 0;
-
+        
         // Atualiza os totais por categoria
         alimentacaoTotal = savedData.alimentacaoTotal || 0;
         moradiaTotal = savedData.moradiaTotal || 0;
@@ -69,14 +71,26 @@ function loadSavedData() {
         saudeTotal = savedData.saudeTotal || 0;
         cartaoTotal = savedData.cartaoTotal || 0;
         despesasTotal = savedData.desepesaTotal || 0;
+        salary = savedData.salary || 0;
+        balance = savedData.balance || 0;
 
         // Atualiza o saldo e a tabela
-        calculateBalance();
+        indexSalario();
         updateExpenseTable();  // Adiciona esta linha para atualizar a tabela
+        calculateBalance();
+
     }
 }
 
+function addSalary() {
+    const salaryInput = document.getElementById("salary").value;
+    
+    document.getElementById("marlene-desgracada-salario-atual").textContent = formatCurrency(salaryInput)
 
+    salary = salaryInput;
+    calculateBalance();
+    saveData();
+}
 function calculateBalance() {
     salary = parseFloat(document.getElementById("salary").value) || 0;
     const balance = salary - totalExpenses;
@@ -97,7 +111,7 @@ function atualizarGrafico() {
       { value: despesasTotal, category: "Despesas pessoais" },
       { value: outrosTotal, category: "Outros" },
       
-        ]);
+    ]);
         
       
         
@@ -237,22 +251,49 @@ function updateExpenseTable() {
     });
 }
 
+function indexSalario()
+{
+    const balance = salary - totalExpenses;
 
+    document.getElementById("marlene-desgracada-salario-atual").textContent = formatCurrency(salary)
 
+    const balanceElement = document.getElementById("balance")
+    balanceElement.textContent = formatCurrency(balance);
 
-    function calculateBalance() {
-        salary = parseFloat(document.getElementById("salary").value) || 0;
-        const balance = salary - totalExpenses;
-        document.getElementById("total-expenses").textContent = totalExpenses;
+    const totalExpensesField = document.getElementById('total-expenses').textContent = formatCurrency(totalExpenses)
 
-        const balanceElement = document.getElementById("balance");
-        balanceElement.textContent = balance;
-
-        if (balance >= 0) {
-            balanceElement.style.color = "green"; // Saldo positivo (verde)
-        } else {
-            balanceElement.style.color = "red"; // Saldo negativo (vermelho)
-        }
+    if (balance >= 0) {
+        balanceElement.style.color = "green"; // Saldo positivo (verde)
+    } else {
+        balanceElement.style.color = "red"; // Saldo negativo (vermelho)
     }
+}
 
+function calculateBalance() 
+{
+    var balance = salary - totalExpenses;
+    document.getElementById("total-expenses").textContent = formatCurrency(totalExpenses);
+
+    const balanceElement = document.getElementById("balance");
+
+    balanceElement.textContent = formatCurrency(balance);
+
+    if (balance >= 0) {
+        balanceElement.style.color = "green"; // Saldo positivo (verde)
+    } else {
+        balanceElement.style.color = "red"; // Saldo negativo (vermelho)
+    }
+    
+}
+
+
+function formatCurrency(value)
+{
+    let USDollar = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'BRL',
+    });
+
+    return USDollar.format(value)
+}
     
